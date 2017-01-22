@@ -13,12 +13,12 @@ import (
 
 func sender(conn net.Conn) {
 
-	text := `{"From":"2","To":"1","Text":"我是2", "Type": 0}`
+	text := `{"From":"Andy999","To":"Andy888","Text":"我是2", "Type": 0, "MessageId":"` + imutil.Guid() + `"}`
 	conn.Write(imutil.Packet([]byte(text)))
 
 	for i := 0; i < 2; i++ {
-		time.Sleep(time.Second * 5)
-		text = `{"From":"2","To":"1","Text":"我是2", "Type": 1}`
+		time.Sleep(time.Second * 8)
+		text = `{"From":"Andy999","To":"Andy888","Text":"我是2", "Type": 1, "MessageId":"` + imutil.Guid() + `"}`
 		conn.Write(imutil.Packet([]byte(text)))
 	}
 }

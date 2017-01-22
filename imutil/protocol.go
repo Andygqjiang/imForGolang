@@ -59,3 +59,7 @@ func BytesToInt(b []byte) int {
 	binary.Read(bytesBuffer, binary.BigEndian, &x)
 	return int(x)
 }
+
+func PacketMsg(text string) []byte {
+	return Packet([]byte(text))
+}

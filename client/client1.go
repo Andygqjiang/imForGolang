@@ -9,17 +9,16 @@ import (
 
 	"../imutil"
 	iconn "../connection"
-
 )
 
 func sender(conn net.Conn) {
 
-	text := `{"From":"1","To":"2","Text":"我是1", "Type": 0}`
+	text := `{"From":"Andy888","To":"Andy999","Text":"我是1", "Type": 0, "MessageId":"` + imutil.Guid() + `"}`
 	conn.Write(imutil.Packet([]byte(text)))
 
 	for i := 0; i < 2; i++ {
-		time.Sleep(time.Second * 5)
-		text = `{"From":"1","To":"2","Text":"我是1", "Type": 1}`
+		time.Sleep(time.Second * 8)
+		text = `{"From":"Andy888","To":"Andy999","Text":"我是1", "Type": 1, "MessageId":"` + imutil.Guid() + `"}`
 		conn.Write(imutil.Packet([]byte(text)))
 	}
 }
