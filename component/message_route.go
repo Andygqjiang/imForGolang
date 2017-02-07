@@ -22,3 +22,8 @@ func DispatchSingle(msg *m.Message) {
 		targetConn.Write(imutil.PacketMsg(json))
 	}
 }
+
+func DispatchGroup(msg *m.Message) {
+	//写入redis成离线消息
+	OffileHandlerSingle(msg)
+}

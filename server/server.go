@@ -35,7 +35,7 @@ func reader(readerChannel chan []byte, conn net.Conn) {
 
 				//推送离线消息至客户端
 				offlineMsg := imutil.HgetAll(message.From)
-				if offlineMsg !=nil && len(offlineMsg) > 0 {
+				if offlineMsg != nil && len(offlineMsg) > 0 {
 					offlineMsgs := make([]string, len(offlineMsg))
 					index := 0
 					for _,v := range offlineMsg {
